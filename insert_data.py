@@ -69,10 +69,10 @@ caVideosDict = caVideosDF.to_dict("records")
 #print(usVideosDict)
 
 #jsons that store category string, to be matched with numberical category from csv             
-usCatJson = open("youtube-new/US_category_id.json",)
+usCatJson = open("dataCSV/US_category_id.json",)
 usCat = json.load(usCatJson)
 #print(uScat)
-caCatJson = open("youtube-new/CA_category_id.json",)
+caCatJson = open("dataCSV/CA_category_id.json",)
 caCat = json.load(caCatJson)
 
 #DATABASE
