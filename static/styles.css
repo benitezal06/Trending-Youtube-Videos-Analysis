@@ -1,0 +1,32 @@
+
+#title {
+    background-color: #e74c3c;
+    color: #353b48;
+}
+
+.question{
+    text-align: center;
+    padding: 10% 15% 2%;
+}
+
+h1{
+    font-size: 3.5rem;
+}
+
+h3{
+    font-size: 1.5rem;
+}
+.search-bar{
+    text-align: center;
+    padding: 0 0 2%;
+}
+
+.graphics{
+    padding: 5%;
+}
+
+.row-center{
+    text-align: center;
+    padding: 0 0 5% 
+    
+}

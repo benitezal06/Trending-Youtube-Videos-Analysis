@@ -15,13 +15,13 @@ function updatePage() {
 url1 = `http://127.0.0.1:5000/${selectedOption}`
 url2 = `http://127.0.0.1:5000/${selectedOption}id`
 
-//this promise is used to access the jsons containing the string categories
+
 d3.json(url2).then(function(datas){
     var catDic = {}
     var id_array = datas[0].items;
     console.log("This is the Id Array:")
     console.log(id_array);
-   
+    datas2 = datas[0].items;
     id_array.forEach(function(category){
         catDic[category.id] = category.snippet.title
     
@@ -29,10 +29,11 @@ d3.json(url2).then(function(datas){
 
 })
 
-//this promise is used to access the csv's containing all the trending youtube videos
 
+//get data from api
 d3.json(url1).then(function(dataChoosen){
-
+    console.log("this is dic")
+    console.log(catDic)
     console.log(dataChoosen);
     // store summary of categories
     var data_summary = [] ; 
@@ -73,7 +74,9 @@ d3.json(url1).then(function(dataChoosen){
         }
         
         });
-        
+        console.log("before")
+        console.log(data_summary)
+        console.log("after")
 
 
         numCatList = []
@@ -112,10 +115,13 @@ d3.json(url1).then(function(dataChoosen){
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
+
     "translate(" + margin.left + "," + margin.top + ")");
+    
+    var svg = d3.select("svg");
+    svg.selectAll("*").remove();
 
     // Add X axis
-
     // var x = d3.scaleLinear()
     // .domain([0, 260000])
     // .range([ 0, width ]);
@@ -147,7 +153,6 @@ d3.json(url1).then(function(dataChoosen){
 
 
     // Add Y axis
-
     // var y = d3.scaleLinear() 
     // .domain([0, 84000])
     // .range([ height, 0]);
@@ -209,7 +214,7 @@ d3.json(url1).then(function(dataChoosen){
 
     tooltip
     .style("opacity", 1)
-    .html("Category: " + d.cat_id +"-"+catDic[d.cat_id])
+    .html("Category: " + d.cat_id +d.cat_count)
     .style("left", (d3.mouse(this)[0]+30) + "px")
     .style("top", (d3.mouse(this)[1]+30) + "px")
     }
