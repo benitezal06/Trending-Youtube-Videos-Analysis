@@ -3,7 +3,6 @@ import requests
 import pymongo
 from bson import Binary, Code
 from bson.json_util import dumps
-
 import numpy as np
 import pandas as pd
 import collections
@@ -92,19 +91,6 @@ def predict():
       #print(TitleToCategories)
 
       print(TitleToCategories['Category'])
-      
-
-      
-
-
-
-    
-
-
-
-
-       
-
       return render_template("index.html",pred = TitleToCategories['Category'])
 
 @app.route("/us")
