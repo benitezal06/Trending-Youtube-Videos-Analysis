@@ -1,10 +1,14 @@
 # Trending-Youtube-Videos_Analysis and Category predictor
+
+Bubble plots visualizations using D3 of trending youtube videos from different locations(US, CA). Use of Naive Bayes classifier model to predict what category a video belongs to based on the title. 
+
 Tools used: 
 
 Python: pandas, pymongo, flask, Naive Bayes model("probabilistic classifier"), spark (work in progress): tokenizer, hashing
 Javascript: D3: event handlers, svg's, tool tips
 html & css: forms
 Procedure followed:
+
 1 : Data in csv format is obtained from: 
 https://www.kaggle.com/datasnaek/youtube-new#USvideos.csv
 https://www.kaggle.com/datasnaek/youtube-new#CAvideos.csv
