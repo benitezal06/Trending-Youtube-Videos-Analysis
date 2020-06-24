@@ -16,18 +16,19 @@
 <section id="title">
     <div class="row">
         <div class="col-lg-6">
-            <h3>Trending Youtube Videos</h3>
+            <h3>Trending Youtube Videos and Category Predictor</h3>
         </div>
     </div>
 <div class="question">
-<h1>Let me predict the Category for your Title</h1>
+<h1>Enter the title of your video :</h1>
+<hr>
 
 <form action = "http://127.0.0.1:5000/predict" method = "POST">
   <p> <input class="w-50 d-inline-block form-control" placeholder="Title" type = "text" name = "title" /></p>
-  <button type="submit" class="btn btn-dark">Predict </button>
+  <button type="submit" class="btn btn-dark">Predict Category! </button>
 
 <div class="predict">
-{{pred}}
+This video falls under the {{pred}} category!
 </div>
 
 </div>
@@ -37,7 +38,10 @@
 </section>
  
     <div class="graphics text-center">
-      <h1></h1>
+      <h1>Visualize trending youtube videos by location:</h1>
+      <b></b>
+      
+      <hr border-width: 10px>
       <div id="plot"></div>
       <select id="selectOption">
       <option value="us">Add Location</option>
