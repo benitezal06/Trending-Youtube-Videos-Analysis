@@ -16,7 +16,8 @@ data_file_pdCA = pd.read_csv(data_fileCA)
 
 usVideosDF = data_file_pdUS[["category_id","views","likes","dislikes","comment_count","title","video_id"]]
 caVideosDF = data_file_pdCA[["category_id","views","likes","dislikes","comment_count","title","video_id"]]
-# removing some for debug : "description","trending_date",
+caTagsDF = data_file_pdCA[["category_id","tags"]]
+
 ##usVideosDF
 
 #checking for missing data 
@@ -66,6 +67,7 @@ comments_mean = usVideosDF["comment_count"].mean()
 
 usVideosDict = usVideosDF.to_dict("records")
 caVideosDict = caVideosDF.to_dict("records")
+caTagsDict = caTagsDF.to_dict("records")
 #print(usVideosDict)
 
 #jsons that store category string, to be matched with numberical category from csv             
@@ -88,17 +90,20 @@ db.usVideosCollection.drop()
 db.usCatJsonCollection.drop()
 db.caVideosCollection.drop()
 db.caCatJsonCollection.drop()
-
+db.tagsCACollection.drop()
 
 usVideosCollection = db.usVideosCollection
 usCatJsonCollection = db.usCatJsonCollection
 caVideosCollection = db.caVideosCollection
 caCatJsonCollection = db.caCatJsonCollection
+tagsCACollection = db.tagsCACollection
 
 
 usVideosCollection.insert_many(usVideosDict)
 usCatJsonCollection.insert_one(usCat)
 caVideosCollection.insert_many(caVideosDict)
 caCatJsonCollection.insert_one(caCat)
+tagsCACollection.insert_many(caTagsDict)
 
 print("Data Uploaded to Database!")
+print(len(caTagsDF))
