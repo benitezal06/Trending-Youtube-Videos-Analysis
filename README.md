@@ -4,6 +4,7 @@ Bubble plots visualizations using D3 of trending youtube videos from different l
 
 ![model](images/predict.png)
 ![svg](images/svg.png)
+## Heatmap of correlation matrix
 ![corr](images/heat_corr.png)
 ## Most common words in video titles
 ![cloud](images/world_cloud.png)
